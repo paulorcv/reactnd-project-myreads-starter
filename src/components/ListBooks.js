@@ -1,6 +1,9 @@
 import React from 'react';
 import BookShelf from './BookShelf';
 import AddButton from './AddButton';
+import PropTypes from 'prop-types';
+
+
 
 const ListBooks = (props) =>{
 
@@ -21,6 +24,10 @@ const ListBooks = (props) =>{
             <AddButton />
         </div>
     );
+}
+
+ListBooks.propTypes = {
+    books: PropTypes.array
 }
 
 export default ListBooks;
