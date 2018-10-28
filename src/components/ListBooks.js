@@ -13,9 +13,9 @@ const ListBooks = (props) =>{
             </div>
             <div className="list-books-content">
                 <div>
-                    <BookShelf title='Currently Reading'  books={books} />
-                    <BookShelf title='Want to Read' books={books} />
-                    <BookShelf title='Read' books={books} />
+                    <BookShelf title='Currently Reading' type='currentlyReading'  books={books} />
+                    <BookShelf title='Want to Read' type='wantToRead' books={books} />
+                    <BookShelf title='Read' type='read' books={books} />
                 </div>
             </div>
             <AddButton />
