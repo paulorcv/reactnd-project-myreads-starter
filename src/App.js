@@ -38,8 +38,32 @@ class BooksApp extends React.Component {
     }));
   }
 
+  clearSearchBooks = () => {
+    this.setState(() => ({
+      searchBooks: []
+    }))    
+  }
+
   searchBook(query){
-    console.log(query);
+    
+    this.clearSearchBooks();
+
+    query.trim() !== '' && (
+      BooksAPI.search(query)
+        .then((searchBooks) => {
+          searchBooks.error ? (
+            this.clearSearchBooks()
+          ):
+          (
+              this.setState(() => ({
+                searchBooks
+              }))            
+          );
+
+        })     
+    );
+
+
   }
 
   render() {
