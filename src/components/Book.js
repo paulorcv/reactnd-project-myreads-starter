@@ -16,10 +16,6 @@ class Book extends Component {
         this.setState({selectedValue: this.props.book.shelf});
     }
 
-    componentWillMount(){
-        this.setState({ selectedValue: this.props.book.shelf });
-    }
-
     handleChange(event){
         this.setState({selectedValue: event.target.value});
         this.props.updateBookShelf(this.props.book, event.target.value);        

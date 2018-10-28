@@ -46,12 +46,13 @@ class BooksApp extends React.Component {
 
   returnbookInTheShelf = (book) =>{
     
-    let bookFound = book;    
+    let bookFound = book;   
+    bookFound.shelf = 'none'; 
     
     this.state.books.forEach( bookInShelf => {
       if (bookInShelf.id === book.id) bookFound = bookInShelf;
     })
-        
+
     return (bookFound);
 
   }
