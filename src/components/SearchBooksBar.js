@@ -1,24 +1,40 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import PropType from 'prop-types';
 
-const SearchBooksBar = () =>  {
-    return(
-        <div className="search-books-bar">
-            <Link to='/' className='close-search'>Close </Link>            
-            <div className="search-books-input-wrapper">
-                {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
+class SearchBooksBar extends Component{
+    
+    state = {
+        query: ''
+    }
 
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
-                <input type="text" placeholder="Search by title or author" />
+    handleChange = (event) => {
+        const query = event.target.value;        
+        this.props.searchBook(query);
+        return( 
+            this.setState({
+                query
+            })
+            
+        )
+    }
+    
+    render(){
+        return(
+            <div className="search-books-bar">
+                <Link to='/' className='close-search'>Close </Link>            
+                <div className="search-books-input-wrapper">
+                    <input type="text" onChange={this.handleChange} placeholder="Search by title or author" />
 
-            </div>
-        </div>        
-    );
+                </div>
+            </div>        
+        )
+    }
+
+}
+
+SearchBooksBar.prototypes = {
+    searchBook: PropType.func.isRequired
 }
 
 export default SearchBooksBar;

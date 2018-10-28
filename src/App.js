@@ -14,6 +14,7 @@ class BooksApp extends React.Component {
   constructor(props){
     super(props);
     this.updateBookShelf = this.updateBookShelf.bind(this);
+    this.searchBook = this.searchBook.bind(this);
   }
 
   componentDidMount(){
@@ -37,13 +38,18 @@ class BooksApp extends React.Component {
     }));
   }
 
+  searchBook(query){
+    console.log(query);
+  }
+
   render() {
     const books = this.state.books;
+    const searchBooks = this.state.searchBooks;
 
     return (
       <div className="app">
         <Route path='/search' render={()=>(
-            <SearchBooks/>
+            <SearchBooks books={searchBooks} searchBook={this.searchBook} />
          )}/>
          <Route exact path='/' render={()=>(
           <ListBooks books={books} updateBookShelf={this.updateBookShelf}/>
