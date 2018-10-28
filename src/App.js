@@ -44,26 +44,47 @@ class BooksApp extends React.Component {
     }))    
   }
 
+  returnbookInTheShelf = (book) =>{
+    
+    let bookFound = book;    
+    
+    this.state.books.forEach( bookInShelf => {
+      if (bookInShelf.id === book.id) bookFound = bookInShelf;
+    })
+        
+    return (bookFound);
+
+  }
+
+  filterSearchBooks = (searchBooks) =>{
+    searchBooks = searchBooks.map((book) => (
+      this.returnbookInTheShelf(book)
+    ));
+
+    this.setState(() => ({ searchBooks }));
+
+    }
+
   searchBook(query){
     
     this.clearSearchBooks();
 
-    query.trim() !== '' && (
+    query.trim() !== '' && ( 
       BooksAPI.search(query)
         .then((searchBooks) => {
-          searchBooks.error ? (
-            this.clearSearchBooks()
-          ):
-          (
-              this.setState(() => ({
-                searchBooks
-              }))            
-          );
-
-        })     
+          searchBooks.error ?
+            (
+              this.clearSearchBooks()
+            )
+            :
+            (
+              this.filterSearchBooks(searchBooks)   
+            );
+        })
     );
 
 
+        
   }
 
   render() {
@@ -73,7 +94,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         <Route path='/search' render={()=>(
-            <SearchBooks books={searchBooks} searchBook={this.searchBook} />
+          <SearchBooks books={searchBooks} searchBook={this.searchBook} updateBookShelf={this.updateBookShelf}/>
          )}/>
          <Route exact path='/' render={()=>(
           <ListBooks books={books} updateBookShelf={this.updateBookShelf}/>

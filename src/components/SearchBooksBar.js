@@ -18,6 +18,15 @@ class SearchBooksBar extends Component{
             
         )
     }
+
+    componentDidMount(){
+        this.props.searchBook('');
+    }
+
+    componentWillUnmount() {
+        this.props.searchBook('');
+    }
+
     
     render(){
         return(
@@ -34,7 +43,7 @@ class SearchBooksBar extends Component{
 }
 
 SearchBooksBar.prototypes = {
-    searchBook: PropType.func.isRequired
+    searchBook: PropType.func.isRequired    
 }
 
 export default SearchBooksBar;
