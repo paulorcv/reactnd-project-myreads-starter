@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchBooksBar = () =>  {
     return(
         <div className="search-books-bar">
-            <a className="close-search" onClick={() => (1 === 1)}>Close</a>
+            <Link to='/' className='close-search'>Close </Link>            
             <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.

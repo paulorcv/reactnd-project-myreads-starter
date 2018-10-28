@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Book = (props) => {
+
+    const book = props.book;
+    console.log(props);
+
     return(
         <div className="book">
             <div className="book-top">
@@ -15,8 +19,8 @@ const Book = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="book-title">{props.title}</div>
-            <div className="book-authors">{props.authors}</div>
+            <div className="book-title">{book.title}</div>
+            <div className="book-authors">{book.authors}</div>
         </div>        
     );
 }
