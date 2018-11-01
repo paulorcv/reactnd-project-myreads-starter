@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 
 
+
 class BookShelf extends Component{
 
     render(){
@@ -13,7 +14,7 @@ class BookShelf extends Component{
 
         return(
             <div className="bookshelf">                
-                <Typography className="bookshelf-title" component="h4" variant="h4" gutterBottom>
+                <Typography className="bookshelf-title" component="h5" variant="h5" gutterBottom>
                     {this.props.title}
                 </Typography>
                 <div className="bookshelf-books">                    

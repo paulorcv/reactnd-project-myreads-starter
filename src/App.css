@@ -27,7 +27,7 @@ body, .app {
 }
 
 .bookshelf {
-  padding: 0 10px 20px;
+  padding: 0 80px 80px;
 }
 
 @media (min-width: 600px) {

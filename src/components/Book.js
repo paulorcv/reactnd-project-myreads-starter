@@ -35,7 +35,7 @@ class Book extends Component {
         const bookImage = !book.imageLinks ?  'defaultImage' : book.imageLinks.thumbnail;    
 
         return (
-            <Card>
+            <Card elevation='24'>
                 <CardActionArea 
                 style={{
                     display: 'flex',
