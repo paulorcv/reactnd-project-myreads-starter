@@ -4,13 +4,13 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
-import yellow from '@material-ui/core/colors/yellow';
+import indigo from '@material-ui/core/colors/indigo';
+import teal from '@material-ui/core/colors/teal';
 
 const theme = createMuiTheme({
     palette: {
-        primary: blue,
-        secondary: yellow,        
+        primary: indigo,
+        secondary: teal,        
     },
     status: {
         danger: 'orange',
