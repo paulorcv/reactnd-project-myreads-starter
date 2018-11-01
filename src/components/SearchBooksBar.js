@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import InputBase from '@material-ui/core/InputBase';
+import KeyboardBackspace from '@material-ui/icons/KeyboardBackspace';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 class SearchBooksBar extends Component{
     
@@ -31,19 +38,31 @@ class SearchBooksBar extends Component{
     render(){
         return(
             <div className="search-books-bar">
-                <Link to='/' className='close-search'>Close </Link>            
-                <div className="search-books-input-wrapper">
-                    <input type="text" onChange={this.handleChange} placeholder="Search by title or author" />
-
-                </div>
-            </div>        
+                <AppBar position="static">
+                    <Toolbar>                        
+                        <IconButton color="inherit" aria-label="Open drawer">
+                        <Link to='/'>
+                            <KeyboardBackspace />
+                        </Link> 
+                        </IconButton>
+                        <InputBase onChange={this.handleChange}
+                            placeholder="Search by title or author"
+                            />
+                        <div>
+                            <SearchIcon />
+                        </div>                            
+                        
+                    </Toolbar>
+                </AppBar>
+            </div>            
         )
     }
 
 }
 
 SearchBooksBar.prototypes = {
-    searchBook: PropType.func.isRequired    
+    searchBook: PropType.func.isRequired,
+    classes: PropType.object.isRequired,
 }
 
 export default SearchBooksBar;

@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Divider from '@material-ui/core/Divider';
 
 class Book extends Component {
 
@@ -23,25 +32,52 @@ class Book extends Component {
 
     render(){
         const book = this.props.book;
-        const bookImage = !book.imageLinks?  '' : book.imageLinks.thumbnail;    
+        const bookImage = !book.imageLinks ?  'defaultImage' : book.imageLinks.thumbnail;    
 
         return (
-            <div className="book">
-                <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${bookImage}")` }}></div>
-                    <div className="book-shelf-changer">
-                        <select value={this.state.selectedValue} onChange={this.handleChange}>
-                            <option value="move" disabled>Move to...</option>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to Read</option>
-                            <option value="read">Read</option>
-                            <option value="none">None</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="book-title">{book.title}</div>
-                <div className="book-authors">{book.authors}</div>
-            </div>
+            <Card>
+                <CardActionArea 
+                style={{
+                    display: 'flex',
+                    margin: 10,
+                    width: 400,
+                    flexDirection: 'row',}}
+                    >
+                    <CardContent style={{
+                                        width: 250, 
+                                        height: 100, 
+                                        flex: '1 0 auto',
+                                        width: 300, }}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {book.title}
+                        </Typography>
+                        <Typography component="p">
+                            {book.authors}
+                        </Typography>
+                    </CardContent>
+                    <Divider />
+                    <CardMedia style={{
+                        width: 128, height: 193,
+                        borderTopLeftRadius: 0,
+                        borderBottomLeftRadius: 0,}}
+                        component="img"
+                        alt="Contemplative Reptile"
+                        image={bookImage}                        
+                        title="Contemplative Reptile"
+                    />
+                </CardActionArea>
+                <CardActions>
+                    <Select
+                        value={this.state.selectedValue}
+                        onChange={this.handleChange}>
+                        <MenuItem value="move">Move to...</MenuItem>
+                        <MenuItem value="currentlyReading">Currently Reading</MenuItem>
+                        <MenuItem value="read">Read</MenuItem>
+                        <MenuItem value="wantToRead">Want to Read</MenuItem>
+                        <MenuItem value="none">None</MenuItem>
+                    </Select>
+                </CardActions>
+            </Card>          
         );
 
     }

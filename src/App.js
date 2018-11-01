@@ -4,6 +4,8 @@ import './App.css'
 import SearchBooks from './components/SearchBooks';
 import ListBooks from './components/ListBooks';
 import { Route } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 class BooksApp extends React.Component {
   state = {
@@ -94,6 +96,7 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
+        <CssBaseline />
         <Route path='/search' render={()=>(
           <SearchBooks books={searchBooks} searchBook={this.searchBook} updateBookShelf={this.updateBookShelf}/>
          )}/>

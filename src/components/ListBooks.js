@@ -2,6 +2,9 @@ import React from 'react';
 import BookShelf from './BookShelf';
 import AddButton from './AddButton';
 import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 
 
@@ -11,9 +14,13 @@ const ListBooks = (props) =>{
 
     return(
         <div className="list-books">
-            <div className="list-books-title">
-                <h1>MyReads</h1>
-            </div>
+            <AppBar position="static" ccolor="inherit">
+                <Toolbar>
+                    <Typography variant="h6" color="inherit">
+                        My Reads
+                    </Typography>
+                </Toolbar>
+            </AppBar>
             <div className="list-books-content">
                 <div>
                     <BookShelf title='Currently Reading' type='currentlyReading' books={books} updateBookShelf={props.updateBookShelf} />
