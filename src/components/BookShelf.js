@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Book from './Book';
 import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 
 class BookShelf extends Component{
@@ -12,8 +12,10 @@ class BookShelf extends Component{
         const typeOfShelf = this.props.type;
 
         return(
-            <div className="bookshelf">
-                <h2 className="bookshelf-title">{this.props.title}</h2>
+            <div className="bookshelf">                
+                <Typography className="bookshelf-title" component="h4" variant="h4" gutterBottom>
+                    {this.props.title}
+                </Typography>
                 <div className="bookshelf-books">                    
                     <ol className="books-grid">         
                         { books.filter((book) => book.shelf===typeOfShelf).map( (book) => {

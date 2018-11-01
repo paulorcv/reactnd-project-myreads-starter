@@ -43,11 +43,7 @@ class Book extends Component {
                     width: 400,
                     flexDirection: 'row',}}
                     >
-                    <CardContent style={{
-                                        width: 250, 
-                                        height: 100, 
-                                        flex: '1 0 auto',
-                                        width: 300, }}>
+                    <CardContent className='card-content'>
                         <Typography gutterBottom variant="h5" component="h2">
                             {book.title}
                         </Typography>
@@ -61,9 +57,8 @@ class Book extends Component {
                         borderTopLeftRadius: 0,
                         borderBottomLeftRadius: 0,}}
                         component="img"
-                        alt="Contemplative Reptile"
                         image={bookImage}                        
-                        title="Contemplative Reptile"
+                        title="Book Cover"
                     />
                 </CardActionArea>
                 <CardActions>
