@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Book from './Book';
 import PropTypes from 'prop-types';
+import Paper from '@material-ui/core/Paper';
 
 
 class BookShelf extends Component{
@@ -13,7 +14,7 @@ class BookShelf extends Component{
         return(
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{this.props.title}</h2>
-                <div className="bookshelf-books">
+                <div className="bookshelf-books">                    
                     <ol className="books-grid">         
                         { books.filter((book) => book.shelf===typeOfShelf).map( (book) => {
                             return(
@@ -22,7 +23,7 @@ class BookShelf extends Component{
                                 </li>                                
                         )}
                         )}               
-                    </ol>
+                    </ol>                    
                 </div>
             </div>            
         );

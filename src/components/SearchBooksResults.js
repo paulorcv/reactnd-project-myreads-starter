@@ -1,6 +1,10 @@
 import React from 'react';
 import Book from './Book';
-
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 const SearchBooksResults = (props) => {
     return(
         <div className="search-books-results">
@@ -17,9 +21,14 @@ const SearchBooksResults = (props) => {
                 </ol>
 
              ):
-             (
-                <p>No results...</p>
-             )}
+             (                
+                    <Card style={{ width: 400, padding: 30 }}>
+                        <CardContent> 
+                            <Typography color="textPrimary" gutterBottom>
+                                NO RESULTS...
+                            </Typography>
+                        </CardContent>
+                    </Card>             )}
         </div>        
     );
 };
