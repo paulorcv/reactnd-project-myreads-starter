@@ -20,7 +20,7 @@ const SearchBooksResults = (props) => {
 
              ):
              (                
-                    <Card style={{ width: 400, padding: 30 }}>
+                    <Card style={{ width: 330, padding: 30 }}>
                         <CardContent> 
                             <Typography color="textPrimary" gutterBottom>
                                 NO RESULTS...
