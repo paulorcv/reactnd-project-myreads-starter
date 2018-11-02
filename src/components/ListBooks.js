@@ -14,9 +14,9 @@ const ListBooks = (props) =>{
 
     return(
         <div className="list-books">
-            <AppBar position="static" ccolor="inherit">
+            <AppBar position="static" color="primary">
                 <Toolbar>
-                    <Typography variant="h6" color="inherit">
+                    <Typography variant="h5" color='secondary'>
                         My Reads
                     </Typography>
                 </Toolbar>

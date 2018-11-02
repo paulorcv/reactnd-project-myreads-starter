@@ -5,12 +5,12 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
-import teal from '@material-ui/core/colors/teal';
+import cyan from '@material-ui/core/colors/cyan';
 
 const theme = createMuiTheme({
     palette: {
         primary: indigo,
-        secondary: teal,        
+        secondary: cyan,        
     },
     status: {
         danger: 'orange',

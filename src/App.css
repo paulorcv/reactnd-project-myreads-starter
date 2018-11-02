@@ -63,6 +63,7 @@ body, .app {
   width: 100%;
   padding: 15px 10px;
   font-size: 1.25em;
+  color: white;
   border: none;
   outline: none;
 }

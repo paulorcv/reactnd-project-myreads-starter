@@ -40,16 +40,16 @@ class SearchBooksBar extends Component{
             <div className="search-books-bar">
                 <AppBar position="static">
                     <Toolbar>                        
-                        <IconButton color="inherit" aria-label="Open drawer">
+                        <IconButton  aria-label="Open drawer">
                         <Link to='/'>
-                            <KeyboardBackspace />
+                           <KeyboardBackspace color="secondary" />
                         </Link> 
                         </IconButton>
-                        <InputBase onChange={this.handleChange}
+                        <InputBase color="secondary" onChange={this.handleChange}
                             placeholder="Search by title or author"
                             />
                         <div>
-                            <SearchIcon />
+                            <SearchIcon color="secondary"/>
                         </div>                            
                         
                     </Toolbar>

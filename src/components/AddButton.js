@@ -9,7 +9,7 @@ const AddButton = () => {
         <div className="open-search">
             <Link to={process.env.PUBLIC_URL + '/search'}>
             <Button variant="fab" color="primary" aria-label="Add">
-                <AddIcon />
+                <AddIcon color="secondary" />
             </Button>          
             </Link>             
         </div>     
