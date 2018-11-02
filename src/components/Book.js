@@ -40,7 +40,7 @@ class Book extends Component {
                 style={{
                     display: 'flex',
                     margin: 10,
-                    width: 380,
+                    width: 350,
                     flexDirection: 'row',}}
                     >
                     <CardContent className='card-content'>

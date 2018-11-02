@@ -18,7 +18,7 @@ class BookShelf extends Component{
                     {this.props.title}
                 </Typography>
                 <div className="bookshelf-books">                    
-                    <ol className="books-grid">         
+                    <ul className="books-grid">         
                         { books.filter((book) => book.shelf===typeOfShelf).map( (book) => {
                             return(
                                 <li key={book.id}>
@@ -26,7 +26,7 @@ class BookShelf extends Component{
                                 </li>                                
                         )}
                         )}               
-                    </ol>                    
+                    </ul>                    
                 </div>
             </div>            
         );
