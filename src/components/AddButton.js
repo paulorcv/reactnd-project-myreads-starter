@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 const AddButton = () => {
     return(
         <div className="open-search">
-            <Link to='/search'>
+            <Link to={process.env.PUBLIC_URL + '/search'}>
             <Button variant="fab" color="primary" aria-label="Add">
                 <AddIcon />
             </Button>          
