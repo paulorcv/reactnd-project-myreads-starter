@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 const SearchBooksResults = (props) => {
     return(
         <div className="search-books-results">
-            {props.books.length > 0 ? (
+            {(props.books.length > 0) ? (
                 <ol className="books-grid">
                     {props.books.map((book) => {
                         return (
@@ -23,7 +23,7 @@ const SearchBooksResults = (props) => {
                     <Card style={{ width: 330, padding: 30 }}>
                         <CardContent> 
                             <Typography color="textPrimary" gutterBottom>
-                                NO RESULTS...
+                                NO RESULTS
                             </Typography>
                         </CardContent>
                     </Card>             )}

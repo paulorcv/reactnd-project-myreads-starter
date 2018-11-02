@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Loading from './Loading';
 
 
 
@@ -23,6 +24,9 @@ const ListBooks = (props) =>{
             </AppBar>
             <div className="list-books-content">
                 <div>
+                    {props.loading === true &&
+                        <Loading />
+                    }
                     <BookShelf title='Currently Reading' type='currentlyReading' books={books} updateBookShelf={props.updateBookShelf} />
                     <BookShelf title='Want to Read' type='wantToRead' books={books} updateBookShelf={props.updateBookShelf} />
                     <BookShelf title='Read' type='read' books={books} updateBookShelf={props.updateBookShelf} />

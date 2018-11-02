@@ -10,39 +10,43 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 class BooksApp extends React.Component {
   state = {
     books: [],
-    searchBooks: []
+    searchBooks: [],
+    loading: false
   }
 
   constructor(props){
     super(props);
     this.updateBookShelf = this.updateBookShelf.bind(this);
     this.searchBook = this.searchBook.bind(this);
+    this.state.loading = false;
   }
 
   componentDidMount(){
+    this.setState({ loading: true });
     BooksAPI.getAll()
       .then((books) => {
         this.setState(() => ({
-          books
+          books: books,
+          loading: false
+
         }))
       })     
   }
 
   updateBookShelf(book, shelf){
-
     book.shelf = shelf;
     BooksAPI.update(book, shelf)
       .then((res) => {
         console.log(res);
       });
     this.setState((oldState) =>({
-      books: oldState.books.filter(bookFilter => bookFilter.id !== book.id).concat(book)
+      books: oldState.books.filter(bookFilter => bookFilter.id !== book.id).concat(book),
     }));
   }
 
   clearSearchBooks = () => {
     this.setState(() => ({
-      searchBooks: []
+      searchBooks: [],
     }))    
   }
 
@@ -63,31 +67,19 @@ class BooksApp extends React.Component {
     searchBooks = searchBooks.map((book) => (
       this.returnbookInTheShelf(book)
     ));
-
-    this.setState(() => ({ searchBooks }));
-
+    this.setState(() => ({searchBooks}));
     }
 
   searchBook(query){
-    
     this.clearSearchBooks();
-
+    this.setState({ loading: true });
     query.trim() !== '' && ( 
       BooksAPI.search(query)
         .then((searchBooks) => {
-          searchBooks.error ?
-            (
-              this.clearSearchBooks()
-            )
-            :
-            (
-              this.filterSearchBooks(searchBooks)   
-            );
+          searchBooks.error ? (this.clearSearchBooks() ) : ( this.filterSearchBooks(searchBooks));
+          this.setState({ loading: false });
         })
-    );
-
-
-        
+    );  
   }
 
   render() {
@@ -98,10 +90,10 @@ class BooksApp extends React.Component {
       <div className="app">
         <CssBaseline />
         <Route path='/search' render={()=>(
-          <SearchBooks books={searchBooks} searchBook={this.searchBook} updateBookShelf={this.updateBookShelf}/>
+          <SearchBooks books={searchBooks} searchBook={this.searchBook} updateBookShelf={this.updateBookShelf} loading={this.state.loading}/>
          )}/>
          <Route exact path='/' render={()=>(
-          <ListBooks books={books} updateBookShelf={this.updateBookShelf}/>
+          <ListBooks books={books} updateBookShelf={this.updateBookShelf} loading={this.state.loading}/>
          )}/>        
       </div>
     )

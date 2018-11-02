@@ -37,7 +37,9 @@ body, .app {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  /* border-bottom: 1px solid #dedede; */
+  vertical-align: middle;
+
 }
 
 .open-search {

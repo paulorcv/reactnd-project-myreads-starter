@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import Book from './Book';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import DoneIcon from '@material-ui/icons/Done';
+
 
 
 
@@ -14,8 +18,18 @@ class BookShelf extends Component{
 
         return(
             <div className="bookshelf">                
-                <Typography className="bookshelf-title" component="h5" variant="h5" gutterBottom>
-                    {this.props.title}
+                <Typography align='center' className="bookshelf-title" component="h5" variant="h5">
+                {typeOfShelf === 'read' &&
+                    <DoneIcon color='primary' fontSize='inherit'/>
+                }
+                {typeOfShelf === 'wantToRead' &&
+                    <LibraryAddIcon color='primary' fontSize='inherit'/>
+                }
+                {typeOfShelf === 'currentlyReading' &&
+                    <LocalLibraryIcon color='primary' fontSize='inherit'/>
+                }                                
+
+                {' '}{this.props.title}
                 </Typography>
                 <div className="bookshelf-books">                    
                     <ul className="books-grid">         
