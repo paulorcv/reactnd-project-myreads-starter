@@ -20,6 +20,9 @@ class BooksApp extends React.Component {
     this.searchBook = this.searchBook.bind(this);
     this.state.loading = false;
   }
+  componentWillMount() {
+    this.searchBook = this.debounce(this.searchBook, 1000);
+  }
 
   componentDidMount(){
     this.setState({ loading: true });
@@ -47,6 +50,7 @@ class BooksApp extends React.Component {
   clearSearchBooks = () => {
     this.setState(() => ({
       searchBooks: [],
+      loading: false
     }))    
   }
 
@@ -73,6 +77,7 @@ class BooksApp extends React.Component {
   searchBook(query){
     this.clearSearchBooks();
     this.setState({ loading: true });
+
     query.trim() !== '' && ( 
       BooksAPI.search(query)
         .then((searchBooks) => {
@@ -80,6 +85,22 @@ class BooksApp extends React.Component {
           this.setState({ loading: false });
         })
     );  
+    this.setState({ loading: false });
+  }
+
+  debounce = (func, wait, immediate) =>{
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
   }
 
   render() {

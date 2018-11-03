@@ -36,7 +36,7 @@ class Book extends Component {
 
         return (
             <Card elevation='24'>
-                <CardActionArea 
+                <CardActionArea className='card-action'
                 style={{
                     display: 'flex',
                     margin: 10,

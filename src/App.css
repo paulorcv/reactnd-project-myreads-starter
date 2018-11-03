@@ -115,6 +115,12 @@ body, .app {
   border: 0, 0, 0 0;  
 } */
   
+/* .card-action{
+  display: flex;
+  margin: 10;
+  width: 330;
+  flex-direction: row;
+} */
 .book {
   width: 140px;
 }
@@ -155,6 +161,13 @@ body, .app {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+
+/* loader */
+.loader {
+  position: absolute;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
 }
 
 

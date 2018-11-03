@@ -5,14 +5,16 @@ import PropTypes from 'prop-types';
 import Loading from './Loading';
 
 const SearchBooks = (props) => {
+    
+    console.log('--->loading Searchbooks:' + props.loading);
+
     return(
         <div className="search-books">
             <SearchBooksBar searchBook={props.searchBook} />
-            { props.loading === true ? (
+            {props.loading === true &&
                 <Loading />
-            ) : (
-                <SearchBooksResults books={props.books} updateBookShelf={props.updateBookShelf}/>
-            )} 
+            }
+                <SearchBooksResults books={props.books} updateBookShelf={props.updateBookShelf}/> 
         </div>
     );
 };
